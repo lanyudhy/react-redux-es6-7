@@ -5,12 +5,12 @@ import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import { ConnectedRouter, routerReducer, routerMiddleware, push } from 'react-router-redux';
-import { AppContainer } from 'react-hot-loader';
-import App from './App';
+import App from './App.js';
 import createHistory from 'history/createBrowserHistory';
 import rootReducer from './reducers/index';
+import './Config/Config';
 
-var FastClick = require('fastclick');
+let FastClick = require('fastclick');
 
 //按模块导入lodash，可以有效减小vendor.js的大小
 import isEmpty from 'lodash/isEmpty';
@@ -24,7 +24,7 @@ window.debounce = debounce;
 window.isArray = isArray;
 
 const history = createHistory();
-const middleware = routerMiddleware(history)
+const middleware = routerMiddleware(history);
 
 //解决移动端300毫秒延迟
 FastClick.attach(document.body);
@@ -40,8 +40,8 @@ const render = Component =>
         document.body.appendChild(document.createElement('div'))
     );
 
-render(App)
+render(App);
 
 if(module.hot) {
-    module.hot.accept('./App', () => { render(App) });
+    module.hot.accept('./App', () => { render(App); });
 }
