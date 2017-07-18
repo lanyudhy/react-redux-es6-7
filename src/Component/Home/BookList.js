@@ -15,7 +15,7 @@ export class BookList extends React.Component {
     }
 
     render() {
-        const {_id, imgUrl, title, author, press, publishedDate, currentPrice, originalPrice, index} = this.props
+        const {_id, title, author, press, publishedDate, currentPrice, originalPrice, index} = this.props
         return (
             <Link to={`/bookList/${_id}`} data-id={_id} className="home-book-list">
                 <div className="book-img">
@@ -42,7 +42,6 @@ export class BookList extends React.Component {
 //数据验证
 BookList.propTypes = {
     _id: PropTypes.string.isRequired,
-    imgUrl: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
     press: PropTypes.string.isRequired,

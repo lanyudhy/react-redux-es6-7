@@ -9,17 +9,16 @@ import PropTypes from 'prop-types';
 //关于import什么时候用{}，什么时候不用大括号，通过那个插件或者组件是否包含default来判断，如果包含，则不需要{}
 
 /*actions*/
-import * as homeActions from 'actions/home';
-import * as globalActions from 'actions/global'
+import * as homeActions from '../../Redux/Action/Home';
+import * as globalActions from '../../Redux/Action/Global'
 
 /*component*/
-import { Header } from 'components/Home/Header';
-import { Nav } from 'components/Home/Nav';
-import { Special } from 'components/Home/Special';
-import { BookList } from 'components/Home/BookList'
+import { Header } from '../../Component/Home/Header';
+import { Nav } from '../../Component/Home/Nav';
+import { Special } from '../../Component/Home/Special';
+import { BookList } from '../../Component/Home/BookList'
 
 /*files*/
-const search = require('./files/search.svg');
 
 /**
  * connect中间件
@@ -66,8 +65,7 @@ export default class HomeContainer extends React.Component {
             <div key={this.props.location.pathname}>
                 <Header
                     title="react-redux架构"
-                    imgUrl={search}
-                    linkTo="search"
+                    linkTo=""
                     bgColor={bgClass}
                     handleClick={this.props.currentAnimate}
                     // {...this.props}当你需要在container调用子组件内部的属性，需要加上该语句，比如组件内部的ref
@@ -102,7 +100,6 @@ export default class HomeContainer extends React.Component {
                                 <BookList
                                     key={index}
                                     _id={ele._id}
-                                    imgUrl={ele.imgUrl}
                                     title={ele.title}
                                     author={ele.author}
                                     press={ele.press}
