@@ -1,5 +1,5 @@
 /**
- * Created by Administrator on 2016/7/2.
+ * Created by diaohy on 2016/7/2.
  */
 import React from 'react';
 

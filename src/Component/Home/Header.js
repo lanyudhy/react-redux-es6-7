@@ -1,5 +1,5 @@
 /**
- * Created by Administrator on 2016/7/1.
+ * Created by diaohy on 2016/7/1.
  */
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';

@@ -1,5 +1,5 @@
 /**
- * Created by Administrator on 2016/7/1.
+ * Created by diaohy on 2016/7/1.
  */
 import React from 'react';
 import { bindActionCreators } from 'redux';

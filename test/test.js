@@ -1,5 +1,5 @@
 /**
- * Created by yongyuehuang on 2017/3/28.
+ * Created by diaohy on 2017/3/28.
  */
 import React from 'react';
 import renderer from 'react-test-renderer';

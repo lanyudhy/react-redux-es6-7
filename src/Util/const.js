@@ -1,3 +1,8 @@
+//定义Redux中的常量
+export const CURRENT_ANIMATE = 'CURRENT_ANIMATE';
+export const RECEIVE_NAV = 'RECEIVE_NAV';
+export const RECEIVE_BOOK = 'RECEIVE_BOOK';
+
 //首页书籍分类导航id
 export const NAV_IMAGE_1 = 1;
 export const NAV_IMAGE_2 = 2;

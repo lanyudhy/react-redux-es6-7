@@ -1,5 +1,8 @@
+/**
+ * Created by diaohy on 2017/6/7.
+ */
 import { combineReducers } from 'redux';
-import { routerReducer } from 'react-router-redux'
+import { routerReducer } from 'react-router-redux';
 
 import { home } from './Home';
 import { global } from './Global';

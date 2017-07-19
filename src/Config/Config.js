@@ -1,3 +1,6 @@
+/**
+ * Created by diaohy on 2016/12/15.
+ */
 ((doc, win) => {
   const docEl = doc.documentElement,
     resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',

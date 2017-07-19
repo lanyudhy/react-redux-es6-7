@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 import { Switch, Route, Redirect, HashRouter as Router} from 'react-router-dom'
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
-// import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 
 import createHistory from 'history/createHashHistory'
 const history = createHistory();
