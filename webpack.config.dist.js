@@ -20,6 +20,7 @@ module.exports = {
             'redux',
             'react-redux',
             'redux-thunk',
+            'jquery',
             'immutable'
         ]
     },
