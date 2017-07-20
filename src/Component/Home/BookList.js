@@ -9,13 +9,13 @@ export class BookList extends React.Component {
 
     shouldComponentUpdate(nextProps, nextState) {
         if (isEqual(this.props, nextProps) || !isEmpty(this.props)) {
-            return false
+            return false;
         }
-        return true
+        return true;
     }
 
     render() {
-        const {_id, title, author, press, publishedDate, currentPrice, originalPrice, index} = this.props
+        const {_id, title, author, press, publishedDate, currentPrice, originalPrice, index} = this.props;
         return (
             <Link to={`/bookList/${_id}`} data-id={_id} className="home-book-list">
                 <div className="book-img">
@@ -49,4 +49,4 @@ BookList.propTypes = {
     currentPrice: PropTypes.string.isRequired,
     originalPrice: PropTypes.string.isRequired,
     index: PropTypes.number.isRequired //书籍序号
-}
+};

@@ -15,6 +15,9 @@ const history = createHistory();
 import './Style/app.less'
 import './Style/home.less'
 import './Style/search.less'
+import './Style/reset.less'
+
+import 'nprogress/nprogress.css';
 
 import * as globalActions from './Redux/Action/Global'
 import { asyncComponent } from './AsyncComponent'
@@ -22,6 +25,7 @@ import { asyncComponent } from './AsyncComponent'
 import HomeContainer from './Container/Home/HomeContainer'
 
 const BookList = asyncComponent(() => import("./Container/BookList/BookListContainer"));
+const Login = asyncComponent(() => import("./Container/Login/LoginContainer"));
 const NotFoundPage = asyncComponent(() => import("./Container/NotFoundPage/NotFoundPageContainer"));
 @connect (
     state => state,
@@ -37,7 +41,7 @@ export default class App extends React.Component {
     
   render() {
       const { animateCls } = this.props.global;
-      console.log(animateCls);
+      // console.log(this.props);
       return (
           <Router history={history}>
               <Route render={({ location }) => {
@@ -51,6 +55,7 @@ export default class App extends React.Component {
                       >
                           <div key={location.pathname}>
                               <Route location={location} exact path="/" component={HomeContainer} />
+                              <Route location={location} path="/login" component={Login} />
                               <Route location={location} path="/bookList/:bookId" component={BookList} />
                               {/*<Route path='/404' component={NotFoundPage} />*/}
                               {/*<Redirect path="*" to='/404'/>*/}

@@ -1,18 +1,19 @@
 /**
- * Created by diaohy on 2017/6/7.
+ * Created by diaohy on 2017/7/20.
  */
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 
 import { home } from './Home';
-import { global } from './Global';
+import { global, user } from './Global';
 
 //注册reducer，每个自定义的reducer都要来这里注册！！！不注册会报错。
 const rootReducer = combineReducers({
-  routing: routerReducer,
-  /* your reducers */
-  home, //首页相关
-  global
+    routing: routerReducer,
+    /* your reducers */
+    home, //首页相关
+    global,
+    user
 });
 
 export default rootReducer;

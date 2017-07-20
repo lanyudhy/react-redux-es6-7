@@ -42,7 +42,7 @@ export default class HomeContainer extends React.Component {
     }
 
     componentWillMount() {
-        const { navMain, bookDetails } = this.props.home
+        const { navMain, bookDetails } = this.props.home;
         if (navMain.length === 0) {
             this.props.getNav();
         }
@@ -58,9 +58,9 @@ export default class HomeContainer extends React.Component {
     }
 
     render() {
-        const { navMain, bookDetails } = this.props.home
+        const { navMain, bookDetails } = this.props.home;
         //还可以通过自定义样式传递给组件
-        let bgClass = { background: '#00bb9c' } //定义一个背景色的变量
+        let bgClass = { background: '#00bb9c' }; //定义一个背景色的变量
         return(
             <div key={this.props.location.pathname}>
                 <Header
@@ -122,4 +122,4 @@ HomeContainer.propTypes = {
     bookDetails: PropTypes.array,
     match: PropTypes.object.isRequired,
     location: PropTypes.object.isRequired
-}
+};

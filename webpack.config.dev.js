@@ -27,9 +27,10 @@ module.exports = {
             include: [APP_PATH]
         }, {
             test: /\.css$/,
-            exclude: /^node_modules$/,
-            loader: ExtractTextPlugin.extract('style-loader', ['css', 'autoprefixer']),
-            include: [APP_PATH]
+            use: [
+                { loader: "style-loader" },
+                { loader: "css-loader" }
+            ]
         }, {
             test: /\.less$/,
             exclude: /^node_modules$/,
@@ -68,12 +69,5 @@ module.exports = {
     ],
     resolve: {
         extensions: ['.js', '.jsx', '.less', '.css'], //后缀名自动补全
-        alias: {
-            "actions": path.resolve(__dirname, "src/actions"),
-            "components": path.resolve(__dirname, "src/components"),
-            "containers": path.resolve(__dirname, "src/containers"),
-            "reducers": path.resolve(__dirname, "src/reducers"),
-            "utils": path.resolve(__dirname, "src/utils")
-        }
     }
 };

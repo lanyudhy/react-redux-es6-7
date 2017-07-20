@@ -6,7 +6,7 @@ import {RECEIVE_NAV, RECEIVE_BOOK} from '../../Util/const';
 let initNavList = {
     navMain: [],
     bookDetails: []
-}
+};
 
 export function home(state = initNavList, action) {
     switch (action.type) {
@@ -14,12 +14,12 @@ export function home(state = initNavList, action) {
             return {
                 ...state,   //三个点是展开符
                 navMain: action.navMain
-            }
+            };
         case RECEIVE_BOOK:
             return {
                 ...state,
                 bookDetails: action.bookDetails
-            }
+            };
         default:
             return {...state};
     }
