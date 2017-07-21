@@ -10,8 +10,8 @@ import NProgress from 'nprogress'
 export const serUser = (response) =>({
     type: USER_INFO,
     id:response.data.id,
-    username:response.data.username,
-    password:response.data.password
+    username:response.data.loginName,
+    password:response.data.password || ""
 });
 
 export const login = (args, sb, fb) => async (dispatch, getState) => {
@@ -25,6 +25,7 @@ export const login = (args, sb, fb) => async (dispatch, getState) => {
         NProgress.done();
         return response;
     } catch (error) {
+        NProgress.done();
         util.showAlert();
     }
 };

@@ -13,6 +13,7 @@ import * as globalActions from '../../Redux/Action/Global';
 import * as userActions from '../../Redux/Action/User'
 
 import * as util from '../../Util/util'
+import AppBar from 'material-ui/AppBar';
 
 /*files*/
 
@@ -36,7 +37,11 @@ export default class LoginContainer extends React.Component {
         };
         this.login = function (e) {
             let {username, password} = this.state;
-            this.props.login({loginName:username,passsword:password}).then((res)=>{
+            this.props.login({loginName:username,password:password}).then((res)=>{
+                if(!res){
+                    util.showAlert();
+                    return;
+                }
                 if(res.status == 200 && res.data.success){
                     this.props.history.push("/");
                 }else{
@@ -69,9 +74,14 @@ export default class LoginContainer extends React.Component {
         let {username, password} = this.state;
         return(
             <div className="login-container">
+                <AppBar
+                    title="Title"
+                    iconClassNameRight="muidocs-icon-navigation-expand-more"
+                    style={{backgroundColor:'#31646b'}}
+                />
                 <input type="text" className="username" maxLength= "10" value={username} onChange={this.handleChange.bind(this, 'username')}/>
                 <input type="password" className="password" maxLength= "10" value={password} onChange={this.handleChange.bind(this, 'password')}/>
-                <button onClick={this.login.bind(this)}>登录</button>
+                <button ref="loginButton" onClick={this.login.bind(this)}>登录</button>
             </div>
         );
     }

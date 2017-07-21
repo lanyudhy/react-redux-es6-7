@@ -5,12 +5,19 @@ import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import { ConnectedRouter, routerReducer, routerMiddleware, push } from 'react-router-redux';
+
+import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
+
 import createHistory from 'history/createBrowserHistory';
 import rootReducer from './Redux/Reducer/index';
 import App from './App.js';
 import './Config/Config';
 
-let FastClick = require('fastclick');
+// let FastClick = require('fastclick');
 
 //按模块导入lodash，可以有效减小vendor.js的大小
 import isEmpty from 'lodash/isEmpty';
@@ -27,7 +34,7 @@ const history = createHistory();
 const middleware = routerMiddleware(history);
 
 //解决移动端300毫秒延迟
-FastClick.attach(document.body);
+// FastClick.attach(document.body);
 const middlewares = [thunk, middleware];
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(...middlewares)));
@@ -35,7 +42,9 @@ const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(...mi
 const render = Component =>
     ReactDOM.render(
         <Provider store={store}>
-            <Component />
+            <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
+                <Component />
+            </MuiThemeProvider>
         </Provider>,
         document.body.appendChild(document.createElement('div'))
     );

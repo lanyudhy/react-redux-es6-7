@@ -13,7 +13,6 @@ import * as homeActions from '../../Redux/Action/Home';
 import * as globalActions from '../../Redux/Action/Global'
 
 /*component*/
-import { Header } from '../../Component/Home/Header';
 import { Nav } from '../../Component/Home/Nav';
 import { Special } from '../../Component/Home/Special';
 import { BookList } from '../../Component/Home/BookList'
@@ -63,14 +62,14 @@ export default class HomeContainer extends React.Component {
         let bgClass = { background: '#00bb9c' }; //定义一个背景色的变量
         return(
             <div key={this.props.location.pathname}>
-                <Header
-                    title="react-redux架构"
-                    linkTo=""
-                    bgColor={bgClass}
-                    handleClick={this.props.currentAnimate}
-                    // {...this.props}当你需要在container调用子组件内部的属性，需要加上该语句，比如组件内部的ref
-                />
-                <div className="style_div">
+                {/*<Header*/}
+                    {/*title="react-redux架构"*/}
+                    {/*linkTo=""*/}
+                    {/*bgColor={bgClass}*/}
+                    {/*handleClick={this.props.currentAnimate}*/}
+                    {/*// {...this.props}当你需要在container调用子组件内部的属性，需要加上该语句，比如组件内部的ref*/}
+                {/*/>*/}
+                <div className="style_div" ref="loginButton">
                     <ul className="style_ul">
                         {
                             !isEmpty(navMain) > 0 &&
