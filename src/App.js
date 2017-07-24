@@ -46,14 +46,10 @@ export default class App extends React.Component {
       return (
           <Router history={history}>
               <div>
-                  <div className="header">
-                      <Header title="react-redux" linkTo="" bgColor={{background: '#00bb9c'}}/>
-                  </div>
-                  <div className="left">
-                  </div>
-                  <div className="body">
-                      <Route render={({ location }) => {
-                          return(
+                  <Route render={({ location }) => {
+                      return(
+                          <div>
+                            <Header title="react-redux" linkTo="" bgColor={{background: '#00bb9c'}}/>
                               <CSSTransitionGroup
                                   transitionName={animateCls}
                                   transitionEnter={true}
@@ -70,11 +66,9 @@ export default class App extends React.Component {
                                       {/*<Redirect path="*" to='/404'/>*/}
                                   </div>
                               </CSSTransitionGroup>
-                          )
-                      }}/>
-                  </div>
-                  <div className="bottom">
-                  </div>
+                          </div>
+                      )
+                  }}/>
               </div>
           </Router>
     );
