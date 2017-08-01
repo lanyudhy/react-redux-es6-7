@@ -11,8 +11,10 @@ import PropTypes from 'prop-types';
 /*actions*/
 import * as globalActions from '../../Redux/Action/Global';
 import * as userActions from '../../Redux/Action/User'
+import SubLogin from '../../Component/SubLogin/SubLogin';
 
 import * as util from '../../Util/util'
+import {USER_INFO} from '../../Util/const';
 import AppBar from 'material-ui/AppBar';
 
 /*files*/
@@ -56,6 +58,8 @@ export default class LoginContainer extends React.Component {
                     this.setState({
                         username:value
                     });
+                    // this.props.setUser
+                    this.props.updateUser({...this.state, username:value});
                     break;
                 case "password":
                     this.setState({
@@ -82,6 +86,7 @@ export default class LoginContainer extends React.Component {
                 <input type="text" className="username" maxLength= "10" value={username} onChange={this.handleChange.bind(this, 'username')}/>
                 <input type="password" className="password" maxLength= "10" value={password} onChange={this.handleChange.bind(this, 'password')}/>
                 <button ref="loginButton" onClick={this.login.bind(this)}>登录</button>
+                <SubLogin></SubLogin>
             </div>
         );
     }

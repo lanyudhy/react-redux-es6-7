@@ -9,9 +9,9 @@ import NProgress from 'nprogress'
 
 export const serUser = (response) =>({
     type: USER_INFO,
-    id:response.data.id,
-    username:response.data.loginName,
-    password:response.data.password || ""
+    id:response.id,
+    username:response.loginName || response.username,
+    password:response.password || ""
 });
 
 export const login = (args, sb, fb) => async (dispatch, getState) => {
@@ -20,7 +20,7 @@ export const login = (args, sb, fb) => async (dispatch, getState) => {
         NProgress.start();
         let response = await instance.post(`/user/login`,args);
         if(response.status == 200 && response.data.success){
-            await dispatch(serUser(response.data));
+            await dispatch(serUser(response.data.data));
         }
         NProgress.done();
         return response;
@@ -28,4 +28,8 @@ export const login = (args, sb, fb) => async (dispatch, getState) => {
         NProgress.done();
         util.showAlert();
     }
+};
+
+export const updateUser = (user) => (dispatch, getState)=>{
+    dispatch(serUser(user));
 };
